@@ -18,4 +18,10 @@
 //    * render home page
 //    * fix styles and images (static paths)
 // 7. Add controllers folder with home controller
-// 8. Connect database
+// 8. Add database
+//    * install mongoose
+//    * connect database
+// 9. Authentication
+//    * add user controller
+//    * add controller to routes
+//    * render login page
