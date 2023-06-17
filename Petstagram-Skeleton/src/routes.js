@@ -1,10 +1,7 @@
 const router = require('express').Router();
 
-// TODO: add controller router
+const homeController = require('./controllers/homeController');
 
-// Test action
-router.get('/', (req, res) => {
-    res.render('home');
-});
+router.use(homeController);
 
 module.exports = router;

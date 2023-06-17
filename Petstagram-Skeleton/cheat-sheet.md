@@ -17,3 +17,5 @@
 //    * add partials folder
 //    * render home page
 //    * fix styles and images (static paths)
+// 7. Add controllers folder with home controller
+// 8. Connect database
