@@ -16,3 +16,4 @@
 //    * add main layout
 //    * add partials folder
 //    * render home page
+//    * fix styles and images (static paths)

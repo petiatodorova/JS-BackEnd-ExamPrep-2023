@@ -1,6 +1,7 @@
 const express = require('express');
 const routes = require('./routes');
 const handlebars = require('express-handlebars');
+const path = require('path');
 
 const app = express();
 
@@ -12,7 +13,7 @@ app.set('view engine', 'hbs');
 app.set('views', 'src/views');
 
 // Middleware
-app.use(express.static('public'));
+app.use('/static', express.static(path.resolve(__dirname, 'public')));
 
 // Body parser
 app.use(express.urlencoded({extended: false}));
