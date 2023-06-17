@@ -1,4 +1,5 @@
 # Cheat Sheet
+// Validations?
 
 // 1. Initialize project
 // 2. Setup dev environment
@@ -29,7 +30,8 @@
 //    * render login page
 //    * render register page
 // 10. Add user model
-//    * add unique for username
+//    * add unique index for username
+//    * validate repeat password
 // 11. Modify login and register forms
 // 12. Add login and register post actions
 // 13. Implement user manager login and register
@@ -37,3 +39,11 @@
 //    * add login and register methods in user controller
 //    * add register method
 //    * add login method
+// 15. Hash password
+//    * install bcrypt
+//    * hash password
+// 16. Login
+//    * find user by username
+//    * Validate password
+// 17. Generate jwt token
+//    * install json webtoken
