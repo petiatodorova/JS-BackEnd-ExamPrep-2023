@@ -1,7 +1,14 @@
 const express = require('express');
 const routes = require('./routes');
+const handlebars = require('express-handlebars');
 
 const app = express();
+
+// Add handlebars
+app.engine('hbs', handlebars.engine({
+    extname: 'hbs'
+}));
+app.set('view engine', 'hbs');
 
 // Middleware
 app.use(express.static('public'));

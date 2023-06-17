@@ -8,3 +8,8 @@
 //    * add routes
 // 4. Add static resources
 // 5. Add views folder with ready htmls
+// 6. Add express-handlebars view engine
+//    * install
+//    * add to express
+//    * config extension
+//    * config views folder
