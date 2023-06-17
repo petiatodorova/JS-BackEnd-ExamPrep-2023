@@ -4,3 +4,5 @@
 // 2. Setup dev environment
 // 3. Install and setup express
 //    * add static middleware
+//    * add body parser
+//    * add routes

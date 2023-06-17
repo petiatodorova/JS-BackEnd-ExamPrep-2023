@@ -1,10 +1,15 @@
 const express = require('express');
+const routes = require('./routes');
 
 const app = express();
 
-// Test action
-app.get('/', (req, res) => {
-    res.send('First action');
-});
+// Middleware
+app.use(express.static('public'));
+
+// Body parser
+app.use(express.urlencoded({extended: false}));
+
+// Routes routes.js
+app.use(routes);
 
 app.listen(5000, console.log('Server is listening on port 5000...'));
