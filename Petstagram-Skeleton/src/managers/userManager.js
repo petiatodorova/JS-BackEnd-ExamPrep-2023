@@ -4,10 +4,8 @@ exports.login = (username, password) => {
 
 }
 
-exports.register = (email, username, password, repeatPassword) => {
-    
-}
+exports.register = (userData) => User.create(userData);
 
 exports.logout = () => {
-    
+
 }

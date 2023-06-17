@@ -29,8 +29,11 @@
 //    * render login page
 //    * render register page
 // 10. Add user model
-// 11. Add user manager
-//    * add login and register methods (empty)
-//    * require in user controller (empty)
-// 12. Modify login and register forms
-// 13. Add login and register post actions
+//    * add unique for username
+// 11. Modify login and register forms
+// 12. Add login and register post actions
+// 13. Implement user manager login and register
+// 14. Add user manager
+//    * add login and register methods in user controller
+//    * add register method
+//    * add login method
