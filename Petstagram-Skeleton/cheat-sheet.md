@@ -12,4 +12,5 @@
 //    * install
 //    * add to express
 //    * config extension
-//    * config views folder
+//    * config views folder (for src folder)
+//    * add main layout
