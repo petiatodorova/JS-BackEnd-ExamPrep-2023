@@ -48,3 +48,7 @@
 // 17. Generate jwt token
 //    * install json webtoken
 //    * generate token in userManager login
+// 18. Return token in cookie
+//    * install cookie parser
+//    * config cookie parser (в index.js)
+//    * set cookie with token

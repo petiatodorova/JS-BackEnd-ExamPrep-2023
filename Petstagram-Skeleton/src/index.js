@@ -3,6 +3,7 @@ const routes = require('./routes');
 const handlebars = require('express-handlebars');
 const path = require('path');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
@@ -24,6 +25,8 @@ app.use('/static', express.static(path.resolve(__dirname, 'public')));
 
 // Body parser
 app.use(express.urlencoded({ extended: false }));
+
+app.use(cookieParser());
 
 // Routes routes.js
 app.use(routes);
