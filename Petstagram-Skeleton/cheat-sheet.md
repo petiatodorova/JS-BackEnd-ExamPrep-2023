@@ -29,3 +29,6 @@
 //    * render login page
 //    * render register page
 // 10. Add user model
+// 11. Add user manager
+//    * add login and register methods (empty)
+//    * require in user controller (empty)
