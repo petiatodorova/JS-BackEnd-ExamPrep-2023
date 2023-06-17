@@ -6,10 +6,20 @@ router.get('/login', (req, res) => {
     res.render('users/login');
 });
 
-
+router.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+    await userManager.login(username, password);
+    res.send('Logged in');
+});
 
 router.get('/register', (req, res) => {
     res.render('users/register');
+});
+
+router.post('/register', async (req, res) => {
+    const { email, username, password, repeatPassword } = req.body;
+    await userManager.register(email, username, password, repeatPassword);
+    res.send('Registered!');
 });
 
 module.exports = router;
