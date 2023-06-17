@@ -15,6 +15,7 @@
 //    * config views folder (for src folder)
 //    * add main layout
 //    * add partials folder
+//    * fix navigation to home
 //    * render home page
 //    * fix styles and images (static paths)
 // 7. Add controllers folder with home controller
@@ -24,4 +25,7 @@
 // 9. Authentication
 //    * add user controller
 //    * add controller to routes
+//    * fix header navigation to login, register and logout
 //    * render login page
+//    * render register page
+
