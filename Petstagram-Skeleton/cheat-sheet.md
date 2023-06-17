@@ -14,3 +14,5 @@
 //    * config extension
 //    * config views folder (for src folder)
 //    * add main layout
+//    * add partials folder
+//    * render home page

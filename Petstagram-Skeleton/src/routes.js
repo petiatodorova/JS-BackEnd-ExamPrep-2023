@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 // Test action
 router.get('/', (req, res) => {
-    res.send('First action');
+    res.render('home');
 });
 
 module.exports = router;
