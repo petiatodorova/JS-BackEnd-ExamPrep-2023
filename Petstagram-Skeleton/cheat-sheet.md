@@ -32,3 +32,5 @@
 // 11. Add user manager
 //    * add login and register methods (empty)
 //    * require in user controller (empty)
+// 12. Modify login and register forms
+// 13. Add login and register post actions
