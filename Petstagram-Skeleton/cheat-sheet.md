@@ -47,3 +47,4 @@
 //    * Validate password
 // 17. Generate jwt token
 //    * install json webtoken
+//    * generate token in userManager login
