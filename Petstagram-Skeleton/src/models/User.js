@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
-const SALT_ROUNDS = 10;
+// const SALT_ROUNDS = 10;
 
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
-        unique: true,
         minLength: 2,
     },
     email: {
@@ -22,47 +21,18 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-userSchema.pre('save', function (next) {
-    return bcrypt.hash(this.password, SALT_ROUNDS)
-        .then((hash) => {
-            this.password = hash;
+// userSchema.pre('save', function (next) {
+//     return bcrypt.hash(this.password, SALT_ROUNDS)
+//         .then((hash) => {
+//             this.password = hash;
 
-            return next();
-        });
-});
-
-userSchema.method('validatePassword', function (password) {
-    return bcrypt.compare(password, this.password);
-});
-
-// userSchema.pre('save', async function(){
-//     const hash = await bcrypt.hash(this.password, 10);
-//     this.password = hash;
+//             return next();
+//         });
 // });
 
-
-
-// userSchema.path('username')
-//     .validate(function () {
-//         return this.username.length >= 2
-//     }, 'Username must be at least 2 symbols long!')
-
-// userSchema.path('email')
-//     .validate(function () {
-//         return this.email.length >= 10
-//     }, 'Email address must be at least 10 symbols long!');
-
-// userSchema.path('password')
-//     .validate(function () {
-//         return this.password.length >= 4
-//     }, 'Password must be at least 4 symbols long!');
-
-// userSchema.virtual('repeatPassword')
-//     .set(function (value) {
-//         if (this.password !== value) {
-//             throw new Error('Password mismatch!')
-//         }
-//     });
+// userSchema.method('validatePassword', function (password) {
+//     return bcrypt.compare(password, this.password);
+// });
 
 const User = mongoose.model('User', userSchema);
 

@@ -3,13 +3,14 @@ const routes = require('./routes');
 const handlebars = require('express-handlebars');
 const path = require('path');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
 // TODO change DB name
 mongoose.connect('mongodb://127.0.0.1:27017/petstagram')
     .then(() => console.log('DB connected successfully'))
-    .catch(err => console.log('DB Error, ', err.message));
+    .catch(err => console.log('DB Error ', err.message));
 
 // Add handlebars
 app.engine('hbs', handlebars.engine({
@@ -24,6 +25,8 @@ app.use('/static', express.static(path.resolve(__dirname, 'public')));
 
 // Body parser
 app.use(express.urlencoded({ extended: false }));
+
+app.use(cookieParser());
 
 // Routes routes.js
 app.use(routes);
