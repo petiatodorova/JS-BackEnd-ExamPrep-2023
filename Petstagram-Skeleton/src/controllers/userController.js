@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const userManager = require('../managers/userManager');
 const { TOKEN_KEY } = require('../config/config');
+const { getErrorMessage } = require('../utils/errorHelpers');
 
 router.get('/login', (req, res) => {
     res.render('users/login');
@@ -22,14 +23,17 @@ router.get('/register', (req, res) => {
 
 router.post('/register', async (req, res) => {
     const { username, email, password, repeatPassword } = req.body;
-    await userManager.register({username, email, password, repeatPassword});
 
-    res.redirect('/users/login');
+    try {
+        await userManager.register({ username, email, password, repeatPassword });
+        res.redirect('/users/login');
+    } catch (err) {
+        res.render('users/register', { error: getErrorMessage(err)})
+    }
 });
 
 router.get('/logout', (req, res) => {
     res.clearCookie('token');
-
     res.redirect('/');
 });
 
