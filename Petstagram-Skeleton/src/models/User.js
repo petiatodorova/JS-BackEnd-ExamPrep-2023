@@ -21,6 +21,13 @@ const userSchema = new mongoose.Schema({
     }
 });
 
+userSchema.virtual('repeatPassword')
+    .set(function (value) {
+        if (this.password !== value) {
+            throw new Error('Password mismatch!')
+        }
+    })
+
 // userSchema.pre('save', function (next) {
 //     return bcrypt.hash(this.password, SALT_ROUNDS)
 //         .then((hash) => {
