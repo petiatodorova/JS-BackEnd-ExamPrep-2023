@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 // const SALT_ROUNDS = 10;
 
@@ -28,6 +28,12 @@ userSchema.virtual('repeatPassword')
             throw new Error('Password mismatch!')
         }
     })
+
+userSchema.pre('save', async function () {
+    const hash = await bcrypt.hash(this.password, 10);
+
+    this.password = hash;
+});
 
 // userSchema.pre('save', function (next) {
 //     return bcrypt.hash(this.password, SALT_ROUNDS)
