@@ -8,7 +8,10 @@ router.get('/login', (req, res) => {
 
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
-    await userManager.login(username, password);
+    const token = await userManager.login(username, password);
+
+    res.cookie('token', token);
+
     res.redirect('/');
 });
 
@@ -19,6 +22,7 @@ router.get('/register', (req, res) => {
 router.post('/register', async (req, res) => {
     const { username, email, password, repeatPassword } = req.body;
     await userManager.register({username, email, password, repeatPassword});
+    
     res.redirect('/users/login');
 });
 
