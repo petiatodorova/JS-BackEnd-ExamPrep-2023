@@ -10,7 +10,7 @@ const app = express();
 // TODO change DB name
 mongoose.connect('mongodb://127.0.0.1:27017/petstagram')
     .then(() => console.log('DB connected successfully'))
-    .catch(err => console.log('DB Error, ', err.message));
+    .catch(err => console.log('DB Error ', err.message));
 
 // Add handlebars
 app.engine('hbs', handlebars.engine({

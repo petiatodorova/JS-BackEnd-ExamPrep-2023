@@ -5,7 +5,8 @@ const User = require('../models/User');
 const SECRET = 'fd36960a-90b0-476d-a058-17ae45752a59';
 
 exports.login = async (username, password) => {
-    const user = await User.findOne({username});
+    const user = await User.findOne({ username });
+
     if (!user) {
         throw new Error('Invalid user or password');
     }
@@ -26,8 +27,9 @@ exports.login = async (username, password) => {
     return token;
 }
 
+// exports.register = (userData) => User.create(userData);
 exports.register = async (userData) => {
-    const user = await User.findOne({username: userData.username});
+    const user = await User.findOne({ username: userData.username });
     if (user) {
         throw new Error('Username already exists!');
     }
@@ -35,7 +37,6 @@ exports.register = async (userData) => {
     return User.create(userData);
 }
 
-// exports.register = (userData) => User.create(userData);
 
 exports.logout = () => {
 

@@ -1,36 +1,44 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const SALT_ROUNDS = 10;
+
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
         unique: true,
-
-        // minLength: 2
+        minLength: 2,
     },
     email: {
         type: String,
         required: true,
-
-        // minLength: 10
+        minLength: 10,
     },
     password: {
         type: String,
         required: true,
-
-        // minLength: 4
-    },
-    repeatPassword: {
-        type: String,
-        required: true
+        minLength: 4,
     }
 });
 
-userSchema.pre('save', async function(){
-    const hash = await bcrypt.hash(this.password, 10);
-    this.password = hash;
+userSchema.pre('save', function (next) {
+    return bcrypt.hash(this.password, SALT_ROUNDS)
+        .then((hash) => {
+            this.password = hash;
+
+            return next();
+        });
 });
+
+userSchema.method('validatePassword', function (password) {
+    return bcrypt.compare(password, this.password);
+});
+
+// userSchema.pre('save', async function(){
+//     const hash = await bcrypt.hash(this.password, 10);
+//     this.password = hash;
+// });
 
 
 
